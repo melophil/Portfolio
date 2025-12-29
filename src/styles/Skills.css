@@ -1,0 +1,89 @@
+/* =========================
+   SKILLS SECTION
+========================= */
+
+#skills {
+  position: relative;
+}
+
+/* Section heading */
+#skills h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* Accent underline */
+#skills h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  display: block;
+  margin-top: 12px;
+  border-radius: 4px;
+}
+
+/* =========================
+   SKILLS WRAPPER
+========================= */
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  max-width: 900px;
+}
+
+/* =========================
+   SKILL PILL
+========================= */
+
+.skills span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.15),
+    rgba(79, 70, 229, 0.05)
+  );
+  color: var(--text);
+
+  border: 1px solid rgba(79, 70, 229, 0.25);
+  cursor: default;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark mode skill pill */
+.dark .skills span {
+  background: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.25),
+    rgba(15, 23, 42, 0.6)
+  );
+  border: 1px solid rgba(79, 70, 229, 0.4);
+}
+
+/* Hover effect */
+.skills span:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .skills {
+    justify-content: center;
+  }
+}

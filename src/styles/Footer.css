@@ -1,0 +1,24 @@
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  margin-top: 80px;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text);
+  opacity: 0.8;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  transition: color 0.3s ease, border 0.3s ease;
+}
+
+/* Dark mode border */
+.dark footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hover polish (subtle) */
+footer:hover {
+  opacity: 1;
+}

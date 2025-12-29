@@ -1,0 +1,53 @@
+/* =========================
+   CONTACT SECTION
+========================= */
+
+#contact {
+  position: relative;
+  text-align: center;
+}
+
+/* Section heading */
+#contact h2 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+/* Accent underline */
+#contact h2::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background: var(--primary);
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 4px;
+}
+
+/* Subtitle text */
+#contact p {
+  max-width: 600px;
+  margin: 20px auto 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+/* Subtle gradient background */
+#contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(79, 70, 229, 0.08),
+    transparent 70%
+  );
+  z-index: -1;
+  border-radius: 24px;
+}
+
+/* Dark mode adjustment */
+.dark #contact p {
+  color: #d1d5db;
+}

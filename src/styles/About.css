@@ -1,0 +1,58 @@
+/* =========================
+   ABOUT SECTION
+========================= */
+
+#about {
+  position: relative;
+}
+
+/* Section heading */
+#about h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Accent line under heading */
+#about h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  display: block;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+/* About text */
+#about p {
+  max-width: 850px;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text);
+}
+
+/* Highlighted keywords */
+#about strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Glass background effect (optional but premium) */
+#about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(79, 70, 229, 0.05),
+    transparent
+  );
+  z-index: -1;
+  border-radius: 20px;
+}
+
+/* Dark mode fine-tuning */
+.dark #about p {
+  color: #d1d5db;
+}

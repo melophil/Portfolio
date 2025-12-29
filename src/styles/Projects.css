@@ -1,0 +1,111 @@
+/* =========================
+   PROJECTS SECTION
+========================= */
+
+#projects {
+  position: relative;
+}
+
+/* Section heading */
+#projects h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* Accent underline */
+#projects h2::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background: var(--primary);
+  display: block;
+  margin-top: 12px;
+  border-radius: 4px;
+}
+
+/* =========================
+   PROJECT GRID
+========================= */
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+/* =========================
+   PROJECT CARD
+========================= */
+
+.card {
+  position: relative;
+  padding: 28px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Dark mode card */
+.dark .card {
+  background: rgba(30, 41, 59, 0.75);
+}
+
+/* Hover lift */
+.card:hover {
+  transform: translateY(-14px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+/* =========================
+   DECORATIVE ACCENT
+========================= */
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    120deg,
+    rgba(79, 70, 229, 0.25),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .projects {
+    gap: 24px;
+  }
+}
