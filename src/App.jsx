@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import StorySection from "./components/StorySection"; // ✅ ADD THIS
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
@@ -25,6 +26,10 @@ export default function App() {
     <div className={dark ? "dark" : ""}>
       <Navbar dark={dark} setDark={setDark} />
       <Hero />
+
+      {/* 🔥 STORYTELLING SECTION */}
+      <StorySection />
+
       <About />
       <Skills />
       <Projects />

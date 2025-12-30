@@ -1,26 +1,45 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
-import { useScroll, useTransform } from "framer-motion";
 import { useRef, useMemo } from "react";
+import * as THREE from "three";
 
-function Particles({ scrollY }) {
+function WaveParticles() {
   const ref = useRef();
 
+  const count = 2000;
+
   const positions = useMemo(() => {
-    const count = 1500;
     const arr = new Float32Array(count * 3);
-    for (let i = 0; i < count * 3; i++) {
-      arr[i] = (Math.random() - 0.5) * 10;
+    let i = 0;
+
+    for (let x = -10; x < 10; x += 0.5) {
+      for (let z = -10; z < 10; z += 0.5) {
+        arr[i++] = x;
+        arr[i++] = 0;
+        arr[i++] = z;
+      }
     }
     return arr;
   }, []);
 
-  useFrame(() => {
-    if (!ref.current) return;
+  useFrame(({ clock }) => {
+    const time = clock.elapsedTime;
+    const pos = ref.current.geometry.attributes.position;
 
-    // Subtle scroll-based rotation
-    ref.current.rotation.y = scrollY.get() * 0.0002;
-    ref.current.rotation.x = scrollY.get() * 0.0001;
+    for (let i = 0; i < pos.count; i++) {
+      const x = pos.getX(i);
+      const z = pos.getZ(i);
+
+      // Wave motion
+      const y =
+        Math.sin(x * 0.6 + time) * 0.4 +
+        Math.cos(z * 0.6 + time) * 0.4;
+
+      pos.setY(i, y);
+    }
+
+    pos.needsUpdate = true;
+    ref.current.rotation.y = time * 0.05;
   });
 
   return (
@@ -28,7 +47,7 @@ function Particles({ scrollY }) {
       <PointMaterial
         transparent
         color="#4f46e5"
-        size={0.04}
+        size={0.035}
         sizeAttenuation
         depthWrite={false}
       />
@@ -37,12 +56,12 @@ function Particles({ scrollY }) {
 }
 
 export default function Background3D() {
-  const { scrollY } = useScroll();
-
   return (
-    <Canvas camera={{ position: [0, 0, 6] }}>
-      <ambientLight intensity={0.8} />
-      <Particles scrollY={scrollY} />
+    <Canvas
+      camera={{ position: [0, 6, 10], fov: 60 }}
+    >
+      <ambientLight intensity={0.6} />
+      <WaveParticles />
     </Canvas>
   );
 }
