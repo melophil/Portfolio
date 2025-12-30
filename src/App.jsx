@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import IntroOverlay from "./components/IntroOverlay";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import StorySection from "./components/StorySection"; // ✅ ADD THIS
@@ -7,9 +8,14 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import CursorReveal from "./components/CursorReveal";
+
 
 export default function App() {
   const [dark, setDark] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
+  const [heroReady, setHeroReady] = useState(false);
+
 
   // Load saved theme
   useEffect(() => {
@@ -23,9 +29,19 @@ export default function App() {
   }, [dark]);
 
   return (
+    <>
+     <CursorReveal />
+    {showIntro && (
+  <IntroOverlay
+    onFinish={() => {
+      setShowIntro(false);
+      setHeroReady(true);
+    }}
+  />
+)}
     <div className={dark ? "dark" : ""}>
       <Navbar dark={dark} setDark={setDark} />
-      <Hero />
+      <Hero ready={heroReady} />
 
       {/* 🔥 STORYTELLING SECTION */}
       <StorySection />
@@ -36,5 +52,6 @@ export default function App() {
       <Contact />
       <Footer />
     </div>
+    </>
   );
 }

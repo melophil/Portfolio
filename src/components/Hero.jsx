@@ -4,7 +4,7 @@ import AnimatedText from "./AnimatedText";
 import Background3D from "./Background3d";
 import profileImg from "../assets/profile.jpg";
 
-export default function Hero() {
+export default function Hero({ready}) {
   /* ---------------- SCROLL PARALLAX ---------------- */
   const { scrollY } = useScroll();
   const imageY = useTransform(scrollY, [0, 600], [0, -50]);
@@ -63,11 +63,11 @@ const imageBlur = useTransform(scrollY, [0, 400], ["blur(0px)", "blur(4px)"]);
       <div className="hero-content">
         {/* LEFT CONTENT */}
         <motion.div
-          className="hero-left"
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-        >
+  className="hero-left"
+  initial={{ opacity: 0, y: 40 }}
+  animate={ready ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.9, ease: "easeOut" }}
+>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ const imageBlur = useTransform(scrollY, [0, 400], ["blur(0px)", "blur(4px)"]);
 <motion.div
   className="hero-right hero-image-wrapper"
   initial={{ opacity: 0, y: 80, scale: 0.9 }}
-  animate={{ opacity: 1, y: 0, scale: 1 }}
+  animate={ready ? { opacity: 1, y: 0, scale: 1 } : {}}
   transition={{ duration: 1, ease: "easeOut" }}
 >
   {/* SCROLL LAYER */}
