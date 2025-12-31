@@ -62,33 +62,41 @@ const imageBlur = useTransform(scrollY, [0, 400], ["blur(0px)", "blur(4px)"]);
       {/* HERO CONTENT */}
       <div className="hero-content">
         {/* LEFT CONTENT */}
-        <motion.div
+<motion.div
   className="hero-left"
   initial={{ opacity: 0, y: 40 }}
   animate={ready ? { opacity: 1, y: 0 } : {}}
   transition={{ duration: 0.9, ease: "easeOut" }}
 >
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            Ayush Rana
-            <span>Dynamics 365 CRM Consultant</span>
-          </motion.h1>
+  <motion.h1
+    initial={{ opacity: 0 }}
+    animate={ready ? { opacity: 1 } : {}}
+    transition={{ delay: 0.2 }}
+  >
+    Designing Scalable CRM Systems
+  </motion.h1>
 
-          <AnimatedText text="Designing scalable CRM solutions and full-stack web applications." />
+  <motion.p
+    className="hero-subtitle"
+    initial={{ opacity: 0 }}
+    animate={ready ? { opacity: 1 } : {}}
+    transition={{ delay: 0.45 }}
+  >
+    Dynamics 365 Consultant & Full-Stack Developer
+  </motion.p>
 
-          <motion.div
-            className="hero-buttons"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
-            <a href="#projects" className="btn primary">View Work</a>
-            <a href="#contact" className="btn outline">Contact Me</a>
-          </motion.div>
-        </motion.div>
+  <motion.div
+    className="hero-buttons"
+    initial={{ opacity: 0 }}
+    animate={ready ? { opacity: 1 } : {}}
+    transition={{ delay: 0.75 }}
+  >
+    <a href="#projects" className="btn primary">
+      Selected Work
+    </a>
+  </motion.div>
+</motion.div>
+
 
         {/* RIGHT IMAGE – PARALLAX + CURSOR TILT */}
       {/* RIGHT IMAGE – ENTRY → SCROLL → HOVER */}
