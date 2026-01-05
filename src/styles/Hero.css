@@ -171,3 +171,52 @@
     height: 330px;
   }
 }
+/* =========================
+   ENHANCEMENTS
+========================= */
+
+.gradient-text {
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hueShift 8s infinite linear;
+}
+
+@keyframes hueShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.btn.glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn.glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(139, 92, 246, 0.4), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn.glow:hover::after {
+  opacity: 1;
+}
+
+.enhanced-glow {
+  box-shadow:
+    0 0 40px rgba(79, 70, 229, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  transition: all 0.4s ease;
+}
+
+.enhanced-glow:hover {
+  box-shadow:
+    0 0 60px rgba(99, 102, 241, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+  transform: translateY(-6px) scale(1.02);
+}
+
