@@ -1,5 +1,22 @@
 /* =========================
-   NAVBAR
+   THEME VARIABLES
+========================= */
+:root {
+  --nav-bg: rgba(255, 255, 255, 0.45);
+  --primary: #6366f1;
+  --text: #111;
+  --nav-scrolled-bg: rgba(255, 255, 255, 0.85);
+}
+
+.dark {
+  --nav-bg: rgba(17, 24, 39, 0.6);
+  --nav-scrolled-bg: rgba(17, 24, 39, 0.9);
+  --primary: #8b5cf6;
+  --text: #f9fafb;
+}
+
+/* =========================
+   NAVBAR WRAPPER
 ========================= */
 
 .nav {
@@ -14,53 +31,75 @@
   justify-content: space-between;
 
   background: var(--nav-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  transition: background 0.4s ease, border 0.4s ease;
+
+  transition: background 0.4s ease, border 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Logo / Name */
+/* Scroll morph effect */
+.nav-scrolled {
+  background: var(--nav-scrolled-bg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo / Title */
 .nav h2 {
   font-size: 1.4rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
   cursor: pointer;
 }
 
-/* Dark mode border */
-.dark .nav {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
 /* =========================
-   THEME TOGGLE
+   THEME TOGGLE BUTTON
 ========================= */
 
 .theme-toggle {
   background: transparent;
   border: 2px solid var(--primary);
   color: var(--text);
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 999px;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 6px;
+  position: relative;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-/* Hover effect */
+/* Gradient glow hover */
 .theme-toggle:hover {
   background: var(--primary);
   color: #fff;
-  box-shadow: 0 0 20px rgba(79, 70, 229, 0.5);
+  box-shadow: 0 0 20px var(--primary);
 }
 
-/* Mobile spacing */
+/* When dark mode active */
+.theme-toggle.dark-active {
+  background: linear-gradient(90deg, #6d28d9, #4f46e5);
+  color: #fff;
+  border: 2px solid transparent;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+/* =========================
+   GRADIENT LOGO TEXT
+========================= */
+.gradient-text {
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6, #22d3ee);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 768px) {
   .nav {
     padding: 0 20px;
