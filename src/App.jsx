@@ -9,6 +9,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import CursorReveal from "./components/CursorReveal";
+import Certifications from "./components/Certifications";
 
 
 export default function App() {
@@ -48,6 +49,7 @@ export default function App() {
 
       <About />
       <Skills />
+      <Certifications />
       <Projects />
       <Contact />
       <Footer />
